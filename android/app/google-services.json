@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:656505054669:android:63ddd6f77ae54883bc1084",
+        "mobilesdk_app_id": "1:656505054669:android:d2cf57934f9262b8bc1084",
         "android_client_info": {
-          "package_name": "com.android.application"
+          "package_name": "com.alvachan.my_messenger"
         }
       },
       "oauth_client": [
         {
-          "client_id": "656505054669-pv47k87njp4jt19m3g15ek33ak7jsvam.apps.googleusercontent.com",
+          "client_id": "656505054669-fsbhgvg2drfu4md74cp662jafem4reo9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.android.application",
+            "package_name": "com.alvachan.my_messenger",
             "certificate_hash": "b61262914fdba604e2ae6eb933411efac894352f"
           }
         },

@@ -37,60 +37,87 @@ Widget switchToAnotherAuthScreen(
   );
 }
 
-Widget socialMediaIntegrationButtons() {
-  return Container(
-    width: double.maxFinite,
-    padding: const EdgeInsets.all(20.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: ShaderMask(
-            shaderCallback: (Rect bounds) {
-              return LinearGradient(
-                colors: <Color>[
-                  Colors.redAccent.shade200,
-                  Colors.yellowAccent.shade200,
-                  Colors.green.shade700,
-                  Colors.blue.shade700,
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ).createShader(bounds);
-            },
-            child: const Icon(
-              FontAwesomeIcons.google,
-              size: 30,
-            ),
-          ),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: ShaderMask(
-            shaderCallback: (bounds) {
-              return LinearGradient(
-                      colors: [Colors.lightBlue.shade200, Colors.blue.shade700],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight)
-                  .createShader(bounds);
-            },
-            child: const Icon(
-              FontAwesomeIcons.facebook,
-              size: 30,
-            ),
-          ),
-        ),
-      ],
+// Widget socialMediaIntegrationButtons() {
+//   return Container(
+//     width: double.maxFinite,
+//     padding: const EdgeInsets.all(20.0),
+//     child: Row(
+//       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//       children: [
+//         IconButton(
+//           onPressed: () {},
+//           icon: ShaderMask(
+//             shaderCallback: (Rect bounds) {
+//               return LinearGradient(
+//                 colors: <Color>[
+//                   Colors.redAccent.shade200,
+//                   Colors.yellowAccent.shade200,
+//                   Colors.green.shade700,
+//                   Colors.blue.shade700,
+//                 ],
+//                 begin: Alignment.topLeft,
+//                 end: Alignment.bottomRight,
+//               ).createShader(bounds);
+//             },
+//             child: const Icon(
+//               FontAwesomeIcons.google,
+//               size: 30,
+//             ),
+//           ),
+//         ),
+//         IconButton(
+//           onPressed: () {},
+//           icon: ShaderMask(
+//             shaderCallback: (bounds) {
+//               return LinearGradient(
+//                       colors: [Colors.lightBlue.shade200, Colors.blue.shade700],
+//                       begin: Alignment.topLeft,
+//                       end: Alignment.bottomRight)
+//                   .createShader(bounds);
+//             },
+//             child: const Icon(
+//               FontAwesomeIcons.facebook,
+//               size: 30,
+//             ),
+//           ),
+//         ),
+//       ],
+//     ),
+//   );
+// }
+
+Widget commonTextFormField({required String hintText, required String? Function(String? inputVal) validator, required TextEditingController textEditingController}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    child: TextFormField(
+      validator: validator,
+      controller: textEditingController,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+            borderSide:
+            BorderSide(width: 1, color: Colors.grey.withOpacity(0.3))),
+        hintText: hintText,
+        enabledBorder: OutlineInputBorder(
+            borderSide:
+            BorderSide(width: 1, color: Colors.grey.withOpacity(0.3))),
+      ),
     ),
   );
 }
 
-Widget authTextFormField({required String hintText}) {
+Widget authTextFormField({required String hintText, required String? Function(String? inputVal) validator, required TextEditingController textEditingController}) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
     child: TextFormField(
+      validator: validator,
+      controller: textEditingController,
+      obscureText: hintText.toLowerCase() == 'email' ? false : true,
+      enableSuggestions: hintText.toLowerCase() == 'email' ? true : false,
+      autocorrect: hintText.toLowerCase() == 'email' ? true : false,
       decoration: InputDecoration(
+        border: OutlineInputBorder(
+            borderSide:
+            BorderSide(width: 1, color: Colors.grey.withOpacity(0.3))),
         hintText: hintText,
         enabledBorder: OutlineInputBorder(
             borderSide:
@@ -100,6 +127,7 @@ Widget authTextFormField({required String hintText}) {
   );
 }
 
+/*
 Widget authButton({required BuildContext context, required String buttonName}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
@@ -117,3 +145,4 @@ Widget authButton({required BuildContext context, required String buttonName}) {
     ),
   );
 }
+*/
